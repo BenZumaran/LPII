@@ -12,7 +12,7 @@
 			<_id type="a">GUID 7801de39-491a-4a11-a9a4-c7bbe5278a62</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">MCU</_name>
-			<_modifiedTimeWeak type="a">3.25.2022::5:41:5</_modifiedTimeWeak>
+			<_modifiedTimeWeak type="a">7.20.2021::5:1:31</_modifiedTimeWeak>
 			<_theMainDiagram type="r">
 				<IHandle type="e">
 					<_hm2Class type="a">IDiagram</_hm2Class>
@@ -20,9 +20,9 @@
 					<_hid type="a">GUID 18de04ae-667d-42f5-8dbd-9f94d20f5a26</_hid>
 				</IHandle>
 			</_theMainDiagram>
-			<_modifiedTime type="a">3.25.2022::6:4:37</_modifiedTime>
+			<_modifiedTime type="a">7.20.2021::5:1:31</_modifiedTime>
 			<_lastID type="a">20</_lastID>
-			<weakCGTime type="a">3.25.2022::5:41:5</weakCGTime>
+			<weakCGTime type="a">3.25.2022::5:35:44</weakCGTime>
 			<strongCGTime type="a">3.25.2022::5:41:48</strongCGTime>
 			<_defaultComposite type="s">GUID e73f0110-67ab-4f55-9209-717a36d05f67</_defaultComposite>
 			<_eventsBaseID type="a">-1</_eventsBaseID>
@@ -269,8 +269,8 @@
 			</_properties>
 			<_name type="a">Diagrama General de Casos de Uso</_name>
 			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
-			<_modifiedTime type="a">3.25.2022::5:44:53</_modifiedTime>
-			<_lastModifiedTime type="a">3.25.2022::5:44:53</_lastModifiedTime>
+			<_modifiedTime type="a">7.20.2021::5:8:51</_modifiedTime>
+			<_lastModifiedTime type="a">7.20.2021::5:8:51</_lastModifiedTime>
 			<m_hReferencedDiagram type="r">
 				<IHandle type="e">
 				</IHandle>
@@ -651,6 +651,35 @@
 		</CGIBasicClass>
 		<CGIBasicClass type="e">
 			<_id type="a">GUID ee842034-d942-4d72-9981-f501164390b1</_id>
+			<_properties type="p"><IPropertyContainer type="e">
+				<Subjects type="c">
+					<IRPYRawContainer type="e">
+						<IPropertySubject type="e">
+							<_Name type="a">General</_Name>
+							<Metaclasses type="c">
+								<IRPYRawContainer type="e">
+									<IPropertyMetaclass type="e">
+										<_Name type="a">Graphics</_Name>
+										<Properties type="c">
+											<IRPYRawContainer type="e">
+												<IProperty type="e">
+													<_Name type="a">FitBoxToItsTextuals</_Name>
+													<_Value type="a">False</_Value>
+													<_Type type="a">Bool</_Type>
+												</IProperty>
+												
+											</IRPYRawContainer>
+										</Properties>
+									</IPropertyMetaclass>
+									
+								</IRPYRawContainer>
+							</Metaclasses>
+						</IPropertySubject>
+						
+					</IRPYRawContainer>
+				</Subjects>
+			</IPropertyContainer>
+			</_properties>
 			<m_type type="a">125</m_type>
 			<m_pModelObject type="r">
 				<IHandle type="e">
@@ -661,7 +690,7 @@
 			<m_pParent type="s">GUID fb4d9a96-854f-4501-81e3-272b751d2608</m_pParent>
 			<m_name type="p">
 				<CGIText type="e">
-					<m_str type="a">Buscar Libro</m_str>
+					<m_str type="a">Listar Libro</m_str>
 					<m_style type="a">Arial; 10 0 0 0 1 </m_style>
 					<m_color type="p">
 						<IColor type="e">
@@ -677,7 +706,7 @@
 				</CGIText>
 			</m_name>
 			<m_drawBehavior type="a">2056</m_drawBehavior>
-			<m_transform type="a">0.124004 0 0 0.0606909 257.248 460.061 </m_transform>
+			<m_transform type="a">0.124004 0 0 0.0429505 257.248 460.043 </m_transform>
 			<m_bIsPreferencesInitialized type="a">1</m_bIsPreferencesInitialized>
 			<m_AdditionalLabel type="p">
 				<CGIText type="e">
@@ -881,7 +910,7 @@
 			<m_anglePoint2 type="a">0 0 </m_anglePoint2>
 			<m_line_style type="a">0</m_line_style>
 			<m_SourcePort type="a">707 823 </m_SourcePort>
-			<m_TargetPort type="a">562 526 </m_TargetPort>
+			<m_TargetPort type="a">562 534 </m_TargetPort>
 			<m_pInverseModelObject type="r">
 				<IAssociationEndHandle type="e">
 					<_hm2Class type="a">IAssociationEnd</_hm2Class>
@@ -1444,7 +1473,7 @@
 			<m_anglePoint2 type="a">0 0 </m_anglePoint2>
 			<m_line_style type="a">0</m_line_style>
 			<m_SourcePort type="a">707 823 </m_SourcePort>
-			<m_TargetPort type="a">562 526 </m_TargetPort>
+			<m_TargetPort type="a">562 534 </m_TargetPort>
 			<m_pInverseModelObject type="r">
 				<IAssociationEndHandle type="e">
 					<_hm2Class type="a">IAssociationEnd</_hm2Class>
@@ -3387,7 +3416,7 @@
 				</CGIText>
 			</m_name>
 			<m_drawBehavior type="a">2056</m_drawBehavior>
-			<m_transform type="a">0.124004 0 0 0.0606909 213.248 685.061 </m_transform>
+			<m_transform type="a">0.124004 0 0 0.0606909 281.248 620.061 </m_transform>
 			<m_bIsPreferencesInitialized type="a">1</m_bIsPreferencesInitialized>
 			<m_AdditionalLabel type="p">
 				<CGIText type="e">
@@ -4192,7 +4221,7 @@
 			<m_anglePoint2 type="a">0 0 </m_anglePoint2>
 			<m_line_style type="a">0</m_line_style>
 			<m_SourcePort type="a">558 534 </m_SourcePort>
-			<m_TargetPort type="a">1006 180 </m_TargetPort>
+			<m_TargetPort type="a">1006 162 </m_TargetPort>
 			<m_ShowName type="a">0</m_ShowName>
 			<m_ShowStereotype type="a">1</m_ShowStereotype>
 		</CGIInheritance>
@@ -4214,8 +4243,8 @@
 			<_id type="a">GUID 5477ba4c-cb91-4cb6-b73e-dc0c2dec590d</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">Mantener Libro</_name>
-			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
-			<_modifiedTime type="a">3.25.2022::5:43:40</_modifiedTime>
+			<_modifiedTimeWeak type="a">3.25.2022::5:43:40</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.20.2021::5:8:47</_modifiedTime>
 			<_lastID type="a">1</_lastID>
 			<weakCGTime type="a">3.25.2022::5:43:40</weakCGTime>
 			<strongCGTime type="a">1.2.1990::0:0:0</strongCGTime>
@@ -4236,9 +4265,9 @@
 		<IDependency type="e">
 			<_id type="a">GUID db491ec7-ec5d-499a-b026-ebec9e9348ee</_id>
 			<_myState type="a">2048</_myState>
-			<_name type="a">Buscar Libro</_name>
+			<_name type="a">Listar Libro</_name>
 			<_modifiedTimeWeak type="a">3.25.2022::5:43:40</_modifiedTimeWeak>
-			<_modifiedTime type="a">3.25.2022::5:43:40</_modifiedTime>
+			<_modifiedTime type="a">7.20.2021::5:8:47</_modifiedTime>
 			<_dependsOn type="r">
 				<INObjectHandle type="e">
 					<_hm2Class type="a">IUseCase</_hm2Class>
@@ -4432,9 +4461,9 @@
 		<IUseCase type="e">
 			<_id type="a">GUID c48d9ff3-5bf9-40d7-a9cf-4be6aa0591fc</_id>
 			<_myState type="a">8192</_myState>
-			<_name type="a">Buscar Libro</_name>
+			<_name type="a">Listar Libro</_name>
 			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
-			<_modifiedTime type="a">3.25.2022::5:53:33</_modifiedTime>
+			<_modifiedTime type="a">7.20.2021::5:8:47</_modifiedTime>
 			<weakCGTime type="a">1.2.1990::0:0:0</weakCGTime>
 			<strongCGTime type="a">1.2.1990::0:0:0</strongCGTime>
 			<_itsStateChart type="r">
@@ -4456,7 +4485,7 @@
 			<_myState type="a">10240</_myState>
 			<_name type="a">itsRecepcionista</_name>
 			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
-			<_modifiedTime type="a">3.25.2022::5:52:47</_modifiedTime>
+			<_modifiedTime type="a">7.20.2021::5:8:47</_modifiedTime>
 			<_multiplicity type="a">1</_multiplicity>
 			<_otherClass type="r">
 				<IClassifierHandle type="e">
@@ -4478,7 +4507,7 @@
 			<_myState type="a">10240</_myState>
 			<_name type="a">itsCliente</_name>
 			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
-			<_modifiedTime type="a">3.25.2022::5:53:33</_modifiedTime>
+			<_modifiedTime type="a">7.20.2021::5:8:47</_modifiedTime>
 			<_multiplicity type="a">1</_multiplicity>
 			<_otherClass type="r">
 				<IClassifierHandle type="e">
@@ -4696,10 +4725,6 @@
 				</IHandle>
 			</_itsStateChart>
 			<_classModifier type="a">Unspecified</_classModifier>
-			<UseCaseStereoTypes type="c">
-				<IRPYRawContainer type="e">
-				</IRPYRawContainer>
-			</UseCaseStereoTypes>
 			<_EntryPoints type="c">
 				<IRPYRawContainer type="e">
 				</IRPYRawContainer>
@@ -4709,7 +4734,7 @@
 			<_id type="a">GUID 97780488-aabe-4c48-a512-33ba6a36a4a7</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">Mantener Pr%E9stamo</_name>
-			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTimeWeak type="a">3.25.2022::5:42:48</_modifiedTimeWeak>
 			<_modifiedTime type="a">3.25.2022::5:42:48</_modifiedTime>
 			<_lastID type="a">1</_lastID>
 			<weakCGTime type="a">3.25.2022::5:42:48</weakCGTime>
@@ -4719,10 +4744,6 @@
 				</IHandle>
 			</_itsStateChart>
 			<_classModifier type="a">Unspecified</_classModifier>
-			<UseCaseStereoTypes type="c">
-				<IRPYRawContainer type="e">
-				</IRPYRawContainer>
-			</UseCaseStereoTypes>
 			<_EntryPoints type="c">
 				<IRPYRawContainer type="e">
 				</IRPYRawContainer>
@@ -4786,10 +4807,6 @@
 				</IHandle>
 			</_itsStateChart>
 			<_classModifier type="a">Unspecified</_classModifier>
-			<UseCaseStereoTypes type="c">
-				<IRPYRawContainer type="e">
-				</IRPYRawContainer>
-			</UseCaseStereoTypes>
 			<_EntryPoints type="c">
 				<IRPYRawContainer type="e">
 				</IRPYRawContainer>
@@ -4833,10 +4850,6 @@
 				</IHandle>
 			</_itsStateChart>
 			<_classModifier type="a">Unspecified</_classModifier>
-			<UseCaseStereoTypes type="c">
-				<IRPYRawContainer type="e">
-				</IRPYRawContainer>
-			</UseCaseStereoTypes>
 			<_EntryPoints type="c">
 				<IRPYRawContainer type="e">
 				</IRPYRawContainer>
@@ -4926,10 +4939,6 @@
 				</IHandle>
 			</_itsStateChart>
 			<_classModifier type="a">Unspecified</_classModifier>
-			<UseCaseStereoTypes type="c">
-				<IRPYRawContainer type="e">
-				</IRPYRawContainer>
-			</UseCaseStereoTypes>
 			<_EntryPoints type="c">
 				<IRPYRawContainer type="e">
 				</IRPYRawContainer>
@@ -4964,7 +4973,7 @@
 			<_id type="a">GUID 99b13a3a-fd30-4a29-9a38-7e94df7193c9</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">Mantener Solicitud de Prestamo</_name>
-			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTimeWeak type="a">3.25.2022::5:42:29</_modifiedTimeWeak>
 			<_modifiedTime type="a">3.25.2022::5:42:29</_modifiedTime>
 			<_lastID type="a">1</_lastID>
 			<weakCGTime type="a">3.25.2022::5:42:29</weakCGTime>
@@ -4974,10 +4983,6 @@
 				</IHandle>
 			</_itsStateChart>
 			<_classModifier type="a">Unspecified</_classModifier>
-			<UseCaseStereoTypes type="c">
-				<IRPYRawContainer type="e">
-				</IRPYRawContainer>
-			</UseCaseStereoTypes>
 			<_EntryPoints type="c">
 				<IRPYRawContainer type="e">
 				</IRPYRawContainer>
@@ -5041,10 +5046,6 @@
 				</IHandle>
 			</_itsStateChart>
 			<_classModifier type="a">Unspecified</_classModifier>
-			<UseCaseStereoTypes type="c">
-				<IRPYRawContainer type="e">
-				</IRPYRawContainer>
-			</UseCaseStereoTypes>
 			<_EntryPoints type="c">
 				<IRPYRawContainer type="e">
 				</IRPYRawContainer>
@@ -5102,9 +5103,9 @@
 			<_id type="a">GUID eeaac2ff-f177-4d50-86fd-978e556eee8d</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">Recepcionista</_name>
-			<_modifiedTimeWeak type="a">3.25.2022::5:42:22</_modifiedTimeWeak>
-			<_modifiedTime type="a">3.25.2022::5:42:22</_modifiedTime>
-			<weakCGTime type="a">3.25.2022::5:42:22</weakCGTime>
+			<_modifiedTimeWeak type="a">7.20.2021::5:8:47</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.20.2021::5:8:47</_modifiedTime>
+			<weakCGTime type="a">7.20.2021::5:8:47</weakCGTime>
 			<strongCGTime type="a">3.25.2022::5:35:44</strongCGTime>
 			<_itsStateChart type="r">
 				<IHandle type="e">
@@ -5129,9 +5130,9 @@
 		<IAssociationEnd type="e">
 			<_id type="a">GUID f1246b03-67e7-4098-9bf1-a745175e1bc0</_id>
 			<_myState type="a">10240</_myState>
-			<_name type="a">itsBuscar Libro</_name>
+			<_name type="a">itsListar Libro</_name>
 			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
-			<_modifiedTime type="a">3.25.2022::5:52:47</_modifiedTime>
+			<_modifiedTime type="a">7.20.2021::5:8:47</_modifiedTime>
 			<_multiplicity type="a">1</_multiplicity>
 			<_otherClass type="r">
 				<IClassifierHandle type="e">
@@ -5394,9 +5395,9 @@
 			<_id type="a">GUID e2765863-e575-437f-88c7-ba8fc64fea9a</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">Cliente</_name>
-			<_modifiedTimeWeak type="a">3.25.2022::5:41:17</_modifiedTimeWeak>
-			<_modifiedTime type="a">3.25.2022::5:41:17</_modifiedTime>
-			<weakCGTime type="a">3.25.2022::5:41:17</weakCGTime>
+			<_modifiedTimeWeak type="a">7.20.2021::5:8:47</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.20.2021::5:8:47</_modifiedTime>
+			<weakCGTime type="a">7.20.2021::5:8:47</weakCGTime>
 			<strongCGTime type="a">3.25.2022::5:35:44</strongCGTime>
 			<_itsStateChart type="r">
 				<IHandle type="e">
@@ -5415,9 +5416,9 @@
 		<IAssociationEnd type="e">
 			<_id type="a">GUID 87811a52-eb64-471c-b8dd-6735f2d92d0f</_id>
 			<_myState type="a">10240</_myState>
-			<_name type="a">itsBuscar Libro</_name>
+			<_name type="a">itsListar Libro</_name>
 			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
-			<_modifiedTime type="a">3.25.2022::5:53:33</_modifiedTime>
+			<_modifiedTime type="a">7.20.2021::5:8:47</_modifiedTime>
 			<_multiplicity type="a">1</_multiplicity>
 			<_otherClass type="r">
 				<IClassifierHandle type="e">
