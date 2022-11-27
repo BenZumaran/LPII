@@ -42,8 +42,8 @@
 			</IPropertyContainer>
 			</_properties>
 			<_name type="a">LPII</_name>
-			<_modifiedTimeWeak type="a">3.25.2022::5:41:46</_modifiedTimeWeak>
-			<_modifiedTime type="a">3.25.2022::6:21:30</_modifiedTime>
+			<_modifiedTimeWeak type="a">7.20.2021::5:0:46</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.20.2021::5:0:46</_modifiedTime>
 			<_lastID type="a">3</_lastID>
 			<_UserColors type="w">
 				<IRPYRawContainer type="e">
@@ -133,13 +133,13 @@
 		</IProfile>
 		<IProfile type="e">
 			<fileName type="a">AnalysisModel</fileName>
-			<_persistAs type="a">C:\Users\benja\Desktop\cibertec desarrollo\4TO CICLO\AN%C1LSIS Y DISE%D1EO DE SISTEMAS II\profiles\AnalysisProfile</_persistAs>
+			<_persistAs type="a">C:\Users\benja\Documents\LPII-GIT\LPII\profiles\profiles\AnalysisProfile</_persistAs>
 			<_id type="a">GUID f883ccaf-9b1e-452f-809a-40b7ddb88a81</_id>
 			<_partOfTheModelKind type="a">referenceunit</_partOfTheModelKind>
 		</IProfile>
 		<IProfile type="e">
 			<fileName type="a">BusinessModeling</fileName>
-			<_persistAs type="a">C:\Users\benja\Desktop\cibertec desarrollo\4TO CICLO\AN%C1LSIS Y DISE%D1EO DE SISTEMAS II\profiles\BusinessModelingProfile</_persistAs>
+			<_persistAs type="a">C:\Users\benja\Documents\LPII-GIT\LPII\profiles\profiles\BusinessModelingProfile</_persistAs>
 			<_id type="a">GUID 018fd50e-cdfb-4d1c-8d00-c6e75ba697d6</_id>
 			<_partOfTheModelKind type="a">referenceunit</_partOfTheModelKind>
 		</IProfile>
