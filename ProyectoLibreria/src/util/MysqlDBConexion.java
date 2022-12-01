@@ -8,7 +8,7 @@ public class MysqlDBConexion {
 		Connection cn = null;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			cn = DriverManager.getConnection("jdbc:mysql://localhost/proyectoLib2022", "root", "root");
+			cn = DriverManager.getConnection("jdbc:mysql://localhost/biblioteca", "root", "root");
 		}
 		catch (Exception e) {
 			e.printStackTrace();

@@ -5,14 +5,15 @@
 create database biblioteca;
 use biblioteca;
 
+
 create table genero_libros(
 cod_gen char(4) primary key,
-desc_gen varchar(15) not null
+desc_gen varchar(25) not null
 );
 ----------------------------------------------------
 create table tipo_doc(
 cod_doc char(4) primary key,
-desc_doc varchar(15) not null
+desc_doc varchar(25) not null
 );
 ----------------------------------------------------
 create table libro(
@@ -27,13 +28,12 @@ constraint chk_est_lib check (estado_lib in ("stock","prestado","solicitado","Ba
 );
 ----------------------------------------------------
 create table usuario(
-cod_usu char(6) primary key not null,
+cod_usu varchar(15) primary key not null,
 nom_usu varchar(50)not null,
 ape_pat_usu varchar(25) not null,
 ape_mat_usu varchar(25) not null,
-edad int not null,
 tipo_usu varchar(10) not null,
-num_doc_usu varchar(15) not null,
+num_doc_usu varchar(15) not null unique,
 img_usu varchar(100) null,
 fecha_nac_usu date not null,
 admin_usu boolean not null,
@@ -86,3 +86,32 @@ constraint fk_numPres_recpres foreign key (num_pres) references prestamo (num_pr
 constraint fk_codUsuCob_recusu foreign key (cod_usu_cobranza) references usuario (cod_usu),
 constraint fk_codDoc_rectdoc foreign key (cod_doc) references tipo_doc (cod_doc)
 );
+
+----------------------------------------------------
+
+
+insert into genero_libros values ("gl01","accion"),
+	("gl02","comedia"),
+	("gl04","romance"),
+	("gl05","ciencia ficcion"),
+	("gl06","suspenso"),
+	("gl07","auto-ayuda");
+
+insert into tipo_doc values ("dc01","DNI"),
+	("dc02","Carnet Extranjería"),
+	("dc03","Pasaporte"),
+	("dc04","Cedula");
+
+insert into libro values ("sa0234","Carrie",2010,"gl06","Stephen King","stock"),
+	("op0348","Como mejorar tu Autoestima",2005,"gl07","Mario Cabanillas","stock"),
+	("sa0456","Un amor de primavera",2013,"gl04","Rosario Balagar","stock"),
+	("ep0984","El verano de Ricky",2002,"gl05","Miguel Unamuno","stock"),
+	("cb0038","Un Frances en Francia",1980,"gl02","Christopher Casas","stock");
+
+insert into usuario values ("benzum","Benjamin","Zumaran","Romero","admin","74084434","","1998/07/19",true,"usu123456"),
+	("mariocaba02","Mario","Cabanillas","Juarez","trabajador","08976547","","1954/01/05",false,"usu123456"),
+	("juanada1987","Juan","Adaliz","Diaz","cliente","83647513","","1987/04/04",false,"usu123456"),
+	("marcielo01","Maricielo","Lucas","Terrones","cliente","89765432","","1997/07/07",false,"usu123456");
+
+select * from usuario;
+
