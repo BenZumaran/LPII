@@ -1,7 +1,7 @@
 package beans;
 
 public class SolicitudDTO {
-	String codUsuSolicitante, codUsuAprobador, fecCreacionSoli, fecAprobacionSoli,estadoSoli;
+	String codUsuSolicitante, codUsuAprobador, fecCreacionSoli, fecAprobacionSoli,fecIniPrestamo,fecDevPrestamo,estadoSoli;
 	int numPrestamo;
 	public String getCodUsuSolicitante() {
 		return codUsuSolicitante;
@@ -27,6 +27,18 @@ public class SolicitudDTO {
 	public void setFecAprobacionSoli(String fecAprobacionSoli) {
 		this.fecAprobacionSoli = fecAprobacionSoli;
 	}
+	public String getFecIniPrestamo() {
+		return fecIniPrestamo;
+	}
+	public void setFecIniPrestamo(String fecIniPrestamo) {
+		this.fecIniPrestamo = fecIniPrestamo;
+	}
+	public String getFecDevPrestamo() {
+		return fecDevPrestamo;
+	}
+	public void setFecDevPrestamo(String fecDevPrestamo) {
+		this.fecDevPrestamo = fecDevPrestamo;
+	}
 	public String getEstadoSoli() {
 		return estadoSoli;
 	}
@@ -38,6 +50,6 @@ public class SolicitudDTO {
 	}
 	public void setNumPrestamo(int numPrestamo) {
 		this.numPrestamo = numPrestamo;
-	}
+	}	
 	
 }
