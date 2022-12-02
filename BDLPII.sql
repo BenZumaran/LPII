@@ -2,6 +2,7 @@
 	drop database biblioteca;
 */
 
+drop database biblioteca;
 create database biblioteca;
 use biblioteca;
 
@@ -43,11 +44,12 @@ constraint chk_tipo_usu check(tipo_usu in("trabajador","admin","cliente"))
 ---------------------------------------------------
 create table solicitud_prestamo(
 num_soli int primary key auto_increment,
-cod_usu_solicitante char(6) not null,
-cod_usu_aprobador char(6) not null,
-num_det_soli int not null,
+cod_usu_solicitante varchar(15) not null,
+cod_usu_aprobador varchar(15) null,
 fec_creacion_soli date not null,
 fec_aprobacion_soli date null,
+fec_ini_pres date not null,
+fec_dev_pres date not null,
 estado_soli varchar(15) not null,
 check(estado_soli in("pendiente","aceptada","denegada")),
 constraint fk_codususoli foreign key (cod_usu_solicitante) references usuario (cod_usu),
@@ -57,14 +59,12 @@ constraint fk_codusuapro foreign key (cod_usu_aprobador) references usuario (cod
 create table prestamo(
 num_pres int primary key auto_increment,
 num_soli int not null,
-cod_usu char(6) not null,
-fec_ini_pres date not null,
-fec_dev_pres date not null,
+cod_usu varchar(15) not null,
 deuda_pres double null,
 est_pres varchar(15),
 constraint fk_numSoli_pressoli foreign key (num_soli) references solicitud_prestamo(num_soli),
 constraint fk_codUsu_presusu foreign key (cod_usu) references usuario(cod_usu),
-constraint chk_estPres check (est_pres in ("activo","pendiente","deuda","cerradi"))
+constraint chk_estPres check (est_pres in ("aprobado","entregado","pendiente","deuda","devuelto"))
 );
 ---------------------------------------------------
 create table detalle_prestamo(
@@ -76,9 +76,9 @@ cod_lib char (6) not null
 ----------------------------------------------------
 create table recibo(
 num_reci int primary key auto_increment,
-num_pres int references prestamo,
+num_pres int not null,
 importe_reci double not null,
-cod_usu_cobranza char(6),
+cod_usu_cobranza varchar(15),
 fec_reci date not null,
 cod_doc char(4) not null,
 num_doc_reci varchar(15) not null,
@@ -113,5 +113,25 @@ insert into usuario values ("benzum","Benjamin","Zumaran","Romero","admin","7408
 	("juanada1987","Juan","Adaliz","Diaz","cliente","83647513","","1987/04/04",false,"usu123456"),
 	("marcielo01","Maricielo","Lucas","Terrones","cliente","89765432","","1997/07/07",false,"usu123456");
 
-select * from usuario;
+insert into solicitud_prestamo values(1,"juanada1987",null,"2022/11/30",null,"2022/12/03","2022/12/13","pendiente"),
+	(null,"marcielo01", null,"2022/12/01",null,"2022/12/04","2022/12/18","pendiente"),
+	(null,"juanada1987",null,"2022/10/27",null,"2022/10/29","2022/11/15","pendiente"),
+	(null,"mariocaba02","mariocaba02","2022/09/06","2022/09/09","2022/09/15","2022/09/28","aceptada"),
+	(null,"mariocaba02","mariocaba02","2022/11/10","2022/11/10","2022/11/12","2022/12/01","aceptada"),
+	(null,"mariocaba02","mariocaba02","2022/11/25","2022/11/26","2022/11/26","2022/12/15","aceptada");
 
+insert into prestamo values(1,4,"marcielo01",0,"devuelto")
+	,(null,5,"juanada1987",15,"pendiente")
+	,(null,6,"marcielo01",0,"entregado"); 
+
+insert into detalle_prestamo values(1,1,null,"sa0456"),
+	(null,2,null,"ep0984"),
+	(null,3,null,"ep0984"),
+	(null,4,null,"sa0456"),
+	(null,4,null,"op0348"),
+	(null,5,null,"cb0038"),
+	(null,6,null,"sa0234");
+
+insert into recibo values (1,1,25.0,"mariocaba02","2022/10/06", "dc01","32456712");
+
+select * from recibo;
