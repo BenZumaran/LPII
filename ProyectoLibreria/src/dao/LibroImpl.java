@@ -123,27 +123,54 @@ public class LibroImpl implements LibroDAO{
 
 	@Override
 	public int actualizarLibro(LibroDTO libro) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int actualizarEstadoLibro(String estado, String codLibro) {
-		// TODO Auto-generated method stub
-		return 0;
+		int res = -1;
+		try {
+			String sql = "update libro set desc_lib = ?, anio_lib = ?, cod_gen = ?, autor_lib = ?, estado_lib = ? where cod_lib = ?";
+			ps = cn.prepareStatement(sql);
+			ps.setString(1, libro.getDescLibro());
+			ps.setInt(2, libro.getAnioLibro());
+			ps.setString(3, libro.getCodGenero());
+			ps.setString(4, libro.getAutorLibro());
+			ps.setString(5, libro.getEstadoLibro());
+			ps.setString(6, libro.getCodLibro());
+			res = ps.executeUpdate();			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(cn != null)cn.close();
+				if(ps != null)ps.close();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		return res;
 	}
 
 	@Override
 	public int ingresarLibro(LibroDTO libro) {
-		// TODO Auto-generated method stub
-		return 0;
+		int res = -1;
+		try {
+			String sql = "insert into libro values (?,?,?,?,?,?);";
+			ps = cn.prepareStatement(sql);
+			ps.setString(1, libro.getCodLibro());
+			ps.setString(2, libro.getDescLibro());
+			ps.setInt(3, libro.getAnioLibro());
+			ps.setString(4, libro.getCodGenero());
+			ps.setString(5, libro.getAutorLibro());
+			ps.setString(6, libro.getEstadoLibro());
+			res = ps.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(cn != null)cn.close();
+				if(ps != null)ps.close();				
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		return res;
 	}
-
-	@Override
-	public int darDeBajaLibro(String codLibro) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	
 
 }

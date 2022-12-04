@@ -125,4 +125,26 @@ public class SolicitudPrestamoImpl implements SolicitudDAO{
 		return lista;
 	}
 
+	@Override
+	public int cambiarEstadoSolicitud(String estadoSolicitud, int numSolicitud) {
+		int res = -1;
+		try {
+			String sql = "update solicitud_prestamo set estado_soli = ? where num_soli = ?";
+			ps = cn.prepareStatement(sql);
+			ps.setString(1, estadoSolicitud);
+			ps.setInt(2, numSolicitud);
+			res = ps.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(cn != null)cn.close();
+				if(ps != null)ps.close();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		return res;
+	}
+
 }
