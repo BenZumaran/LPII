@@ -10,7 +10,7 @@ import beans.DataGenericaDTO;
 import interfaces.DataGenericDAO;
 import util.MysqlDBConexion;
 
-public class DataGenericImpl implements DataGenericDAO{
+public class DataTipoDocImpl implements DataGenericDAO{
 
 	@Override
 	public List<DataGenericaDTO> listarData() {
@@ -21,7 +21,7 @@ public class DataGenericImpl implements DataGenericDAO{
 		ResultSet rs = null;
 		try {
 			cn = MysqlDBConexion.getConexion();
-			String sql = "select * from genero_libros";
+			String sql = "select * from tipo_doc";
 			ps = cn.prepareStatement(sql);
 			rs = ps.executeQuery();
 			while(rs.next()) {

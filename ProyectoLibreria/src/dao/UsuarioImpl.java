@@ -3,7 +3,6 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 
 import beans.UsuarioDTO;
 import interfaces.UsuarioDAO;
@@ -108,14 +107,56 @@ public class UsuarioImpl implements UsuarioDAO{
 
 	@Override
 	public int registrarUsuario(UsuarioDTO usuario) {
-		// TODO Auto-generated method stub
-		return 0;
+		int res = -1;
+		Connection cn = null;
+		PreparedStatement ps = null;
+		try {
+			cn = MysqlDBConexion.getConexion();
+			ps = cn.prepareStatement("insert into usuario values (?,?,?,?,?,?,?,?,?,?);");
+			ps.setString(1, usuario.getCodUsuario());
+			ps.setString(2, usuario.getNomUsuario());
+			ps.setString(3, usuario.getApePatUsuario());
+			ps.setString(4, usuario.getApeMatUsuario());
+			ps.setString(5, usuario.getTipoUsuario());
+			ps.setString(6, usuario.getNumDocUsuario());
+			ps.setString(7, usuario.getImgUsuario());
+			ps.setString(8, usuario.getFecNacUsuario());
+			ps.setBoolean(9, usuario.isAdminUsuario());
+			res = ps.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(ps != null) ps.close();
+				if(cn != null) cn.close();				
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		return res;
 	}
 
 	@Override
 	public int eliminarUsuario(String codUsuario) {
-		// TODO Auto-generated method stub
-		return 0;
+		int res = -1;
+		Connection cn = null;
+		PreparedStatement ps = null;
+		try {
+			cn = MysqlDBConexion.getConexion();
+			ps = cn.prepareStatement("delete * from usuario where cod_usu = ?;");
+			ps.setString(1, codUsuario);
+			res = ps.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(ps != null) ps.close();
+				if(cn != null) cn.close();				
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		return res;
 	}
 	
 }
