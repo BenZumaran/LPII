@@ -62,15 +62,20 @@ public class ServletLibro extends HttpServlet {
 	}
 
 	private void buscar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String codLibro= request.getParameter("codigo");		
-		request.setAttribute("dataLibro", service.buscarLibro(codLibro));		
-		request.getRequestDispatcher("ActualizarLibro.jsp").forward( request, response);					
+		if(Boolean.parseBoolean((String)request.getParameter("actualizar"))) {
+			String codLibro= request.getParameter("codigo");					
+			request.setAttribute("dataLibro", service.buscarLibro(codLibro));					
+		} 
+		
+		request.setAttribute("dataGeneroLibro", service.listarDataGenero());	
+		request.setAttribute("actualizar", request.getParameter("actualizar"));		
+		request.getRequestDispatcher("actualizarLibros.jsp").forward( request, response);		
 	}
 	
 	private void listar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setAttribute("dataLibro", service.listarLibro());		
 		request.setAttribute("dataGeneroLibro", service.listarDataGenero());
-		request.getRequestDispatcher("ReporteLibro.jsp").forward( request, response);					
+		request.getRequestDispatcher("consultaLibro.jsp").forward( request, response);					
 	}
 	
 	private void filtrar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -83,9 +88,9 @@ public class ServletLibro extends HttpServlet {
 		String codLibro = request.getParameter("codigo_libro");
 		String descLibro = request.getParameter("desc_libro");
 		int anioLibro = Integer.parseInt(request.getParameter("anio_libro"));
-		String codGenero = request.getParameter("genero_libro");
+		String codGenero = request.getParameter("cbo_genero");
 		String autorLibro = request.getParameter("autor_libro");
-		String estadoLibro = request.getParameter("est_libro");
+		String estadoLibro = request.getParameter("cbo_estado");
 		
 		LibroDTO libro = new LibroDTO();
 		libro.setCodLibro(codLibro);
@@ -95,17 +100,18 @@ public class ServletLibro extends HttpServlet {
 		libro.setAutorLibro(autorLibro);
 		libro.setEstadoLibro(estadoLibro);
 		
-		request.setAttribute("dataLibro", service.actualizarLibro(libro));		
-		request.getRequestDispatcher("").forward( request, response);					
+		service.actualizarLibro(libro);
+		listar(request, response);
+				
 	}
 	
 	private void ingresar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String codLibro = request.getParameter("codigo_libro");
 		String descLibro = request.getParameter("desc_libro");
 		int anioLibro = Integer.parseInt(request.getParameter("anio_libro"));
-		String codGenero = request.getParameter("codigo_genero");
+		String codGenero = request.getParameter("cbo_genero");
 		String autorLibro = request.getParameter("autor_libro");
-		String estadoLibro = request.getParameter("est_libro");
+		String estadoLibro = request.getParameter("cbo_estado");
 		
 		LibroDTO libro = new LibroDTO();
 		libro.setCodLibro(codLibro);
@@ -115,8 +121,10 @@ public class ServletLibro extends HttpServlet {
 		libro.setAutorLibro(autorLibro);
 		libro.setEstadoLibro(estadoLibro);
 		
-		request.setAttribute("dataLibro", service.ingresarLibro(libro));		
-		request.getRequestDispatcher("").forward( request, response);					
+		request.setAttribute("dataLibro", service.ingresarLibro(libro));	
+		request.setAttribute("actualizar", request.getParameter("actualizar"));
+		
+		listar(request, response);			
 	}
 	
 

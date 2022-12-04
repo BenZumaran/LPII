@@ -11,12 +11,13 @@ import interfaces.PrestamoDAO;
 import util.MysqlDBConexion;
 
 public class PrestamoImpl implements PrestamoDAO {
-	private Connection cn = MysqlDBConexion.getConexion();
+	private Connection cn = null;
 	private PreparedStatement ps = null;
 	@Override
 	public PrestamoDTO buscarPrestamo(int numPrestamo) {
 		PrestamoDTO prestamo = null;
 		try {
+			cn = MysqlDBConexion.getConexion();
 			String sql = "select * from prestamo where num_pres = ?;";
 			ps = cn.prepareStatement(sql);
 			ps.setInt(1, numPrestamo);
@@ -46,6 +47,7 @@ public class PrestamoImpl implements PrestamoDAO {
 		List<PrestamoDTO> lista = new ArrayList<PrestamoDTO>(); 
 		PrestamoDTO prestamo = null;
 		try {
+			cn = MysqlDBConexion.getConexion();
 			String sql = "select * from prestamo;";
 			ps = cn.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
@@ -77,8 +79,7 @@ public class PrestamoImpl implements PrestamoDAO {
 		String sql = "";
 		switch(nomFiltro) {
 			case "usuario":
-				 sql = "select p.* from prestamo as p inner join usuario as u on p.cod_usu = u.cod_usu" + 
-				 		"where u.nom_usu like \"%"+detalleFiltro+"%\"or ape_pat_usu like \"%"+detalleFiltro+"%\" or u.ape_mat_usu like \"%"+detalleFiltro+"%\";";
+				 sql = "select * from prestamo where cod_usu like \"%"+detalleFiltro+"%\";";
 				
 				break;
 			case "estado":
@@ -86,6 +87,7 @@ public class PrestamoImpl implements PrestamoDAO {
 				break;
 		}
 		try {
+			cn = MysqlDBConexion.getConexion();
 			ps = cn.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
@@ -113,6 +115,7 @@ public class PrestamoImpl implements PrestamoDAO {
 	public int actualizarPrestamoEstado(String estado, int numPrestamo) {
 		int res = -1;
 		try {
+			cn = MysqlDBConexion.getConexion();
 			String sql = "update prestamo set est_pres = ? "
 					+ "where num_pres = ?";
 			ps = cn.prepareStatement(sql);
@@ -137,6 +140,7 @@ public class PrestamoImpl implements PrestamoDAO {
 		if(deuda) res = actualizarPrestamoEstado("deuda", numPrestamo);
 		else res = actualizarPrestamoEstado("devuelto", numPrestamo);
 		try {
+			cn = MysqlDBConexion.getConexion();
 			String sql = "update libro set estado_lib= \"stock\" "
 					+ "where cod_lib = ?";
 			ps = cn.prepareStatement(sql);
@@ -158,6 +162,7 @@ public class PrestamoImpl implements PrestamoDAO {
 	public int crearNuevoPrestamo(PrestamoDTO prestamo) {
 		int res = -1;
 		try {
+			cn = MysqlDBConexion.getConexion();
 			String sql = "insert into prestamo values (null,?,?,?,?)";
 			ps = cn.prepareStatement(sql);
 			ps.setString(1, prestamo.getCodUsuario());

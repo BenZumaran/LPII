@@ -73,12 +73,12 @@
 				</tr>
 				<tr>
 					<td>
-						<input  class="button" type="submit" value="Actualizar">
+						<input  class="btn-indx" type="submit" value="Actualizar">
 					</td>
 				</tr>
 			</table>
 		</form>
-		<a class="btn-indx" href="ServletUsuario?rqst=listar">Cambiar Contraseña</a><br>
+		<%-- <a class="btn-indx" href="ServletUsuario?rqst=listar">Cambiar Contraseña</a><br> --%>
 	</div>	
 </body>
 </html>

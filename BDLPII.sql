@@ -133,25 +133,3 @@ insert into detalle_prestamo values(1,1,null,"sa0456"),
 	(null,6,null,"sa0234");
 
 insert into recibo values (1,1,25.0,"mariocaba02","2022/10/06", "dc01","32456712");
-
-select * from solicitud_prestamo;
-
-select * from solicitud_prestamo where estado_soli like "%a%";
-
-select concat(u.nom_usu," ",ape_pat_usu," ",u.ape_mat_usu) as "Solicitante" from solicitud_prestamo as s 
-inner join usuario as u on s.cod_usu_solicitante = u.cod_usu;
-
-select concat(u.nom_usu," ",ape_pat_usu," ",u.ape_mat_usu) as "Solicitante" from solicitud_prestamo as s 
-inner join usuario as u on s.cod_usu_solicitante = u.cod_usu 
-where u.nom_usu like "%lu%" or ape_pat_usu like "%lu%" or u.ape_mat_usu like "%ma%" ;
-
-select * from prestamo;
-
-select p.* from prestamo as p inner join usuario as u on p.cod_usu = u.cod_usu 
-where u.nom_usu like "%lu%" or ape_pat_usu like "%lu%" or u.ape_mat_usu like "%ma%";
-
-select * from usuario where cod_usu = "benzum";
-
-/*
-update usuario set nom_usu = ?, ape_pat_usu = ?, ape_mat_usu = ?, tipo_usu = ?, num_doc_usu = ?, img_usu = ?, fec_nac_usu = ?, admin = ?, contra_usu = ? where cod_usu = ?;
-*/

@@ -2,8 +2,7 @@ package beans;
 
 public class SolicitudDTO {
 	String codUsuSolicitante, codUsuAprobador, fecCreacionSoli, fecAprobacionSoli,fecIniPrestamo,fecDevPrestamo,estadoSoli;
-	int numPrestamo;
-	
+	int numSolicitud;
 	public String getCodUsuSolicitante() {
 		return codUsuSolicitante;
 	}
@@ -46,11 +45,11 @@ public class SolicitudDTO {
 	public void setEstadoSoli(String estadoSoli) {
 		this.estadoSoli = estadoSoli;
 	}
-	public int getNumPrestamo() {
-		return numPrestamo;
+	public int getNumSolicitud() {
+		return numSolicitud;
 	}
-	public void setNumPrestamo(int numPrestamo) {
-		this.numPrestamo = numPrestamo;
-	}	
+	public void setNumSolicitud(int numSolicitud) {
+		this.numSolicitud = numSolicitud;
+	}
 	
 }

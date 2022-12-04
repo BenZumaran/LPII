@@ -80,7 +80,6 @@ public class ServletUsuario extends HttpServlet {
 		
 	}
 	private void eliminar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int codigo = Integer.parseInt(request.getParameter("cod"));
 		
 	}
 
