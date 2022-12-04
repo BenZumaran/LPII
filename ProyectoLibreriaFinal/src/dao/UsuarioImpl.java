@@ -9,7 +9,7 @@ import interfaces.UsuarioDAO;
 import util.MysqlDBConexion;
 
 public class UsuarioImpl implements UsuarioDAO{
-
+	
 	@Override
 	public boolean autenticarUsuario(String codUsuario, String contraUsuario) {
 		boolean res = false;
@@ -22,7 +22,7 @@ public class UsuarioImpl implements UsuarioDAO{
 			ps.setString(1, codUsuario);
 			ResultSet rs = ps.executeQuery();
 			if(rs.next()) 
-				res = rs.getString(0).equals(contraUsuario);				
+				res = rs.getString("contra_usu").equals(contraUsuario);				
 			
 		} catch(Exception e){
 			e.printStackTrace();
