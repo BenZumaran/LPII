@@ -1,5 +1,6 @@
-/interfaces/
+/beans/
 /dao/
-/serive/
+/interfaces/
 /service/
+/util/
 /servlet/
