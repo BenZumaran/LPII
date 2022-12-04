@@ -2,13 +2,16 @@ package service;
 
 import java.util.List;
 
+import beans.DataGenericaDTO;
 import beans.LibroDTO;
 import dao.DAOFactory;
+import interfaces.DataGenericDAO;
 import interfaces.LibroDAO;
 
 public class LibroService {
 	DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
 	LibroDAO libro = factory.getLibro();
+	DataGenericDAO generoLibro = factory.getGeneroLibro();
 	
 	public LibroDTO buscarLibro(String codLibro) {
 		return libro.buscarLibro(codLibro);
@@ -24,5 +27,8 @@ public class LibroService {
 	}
 	public int ingresarLibro(LibroDTO lib) {
 		return libro.ingresarLibro(lib);
+	}
+	public List<DataGenericaDTO> listarDataGenero() {
+		return generoLibro.listarData();
 	}
 }

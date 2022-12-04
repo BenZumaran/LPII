@@ -21,13 +21,14 @@ public class DataGeneroLibroImpl implements DataGenericDAO{
 		ResultSet rs = null;
 		try {
 			cn = MysqlDBConexion.getConexion();
-			String sql = "select * from genero_libros";
+			String sql = "select * from genero_libros;";
 			ps = cn.prepareStatement(sql);
 			rs = ps.executeQuery();
 			while(rs.next()) {
 				dt = new DataGenericaDTO();
-				dt.setCodigo(rs.getString(1));
-				dt.setDescripcion(rs.getString(2));
+				dt.setCodigo(rs.getString("cod_gen"));
+				dt.setDescripcion(rs.getString("desc_gen"));
+				data.add(dt);
 			}
 			
 		}catch(Exception e) {

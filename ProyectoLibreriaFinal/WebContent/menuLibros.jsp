@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html" charset="ISO-8859-1">
-<title>Hospital Rebagliati Equipos Médicos</title>
+<title>Automatización Libreria</title>
 <link rel="stylesheet" href="estilos.css">
 </head>
 <body>

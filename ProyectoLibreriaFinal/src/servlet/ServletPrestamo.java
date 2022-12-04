@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import beans.PrestamoDTO;
-import beans.ReciboDTO;
 import service.PrestamoService;
 
 /**
@@ -107,6 +106,7 @@ public class ServletPrestamo extends HttpServlet {
 		
 		PrestamoDTO prestamo = new PrestamoDTO();
 		
+		prestamo.setNumPrestamo(numPrestamo);
 		prestamo.setCodUsuario(codUsuario);
 		prestamo.setNumSolicitud(numSolicitud);;
 		prestamo.setDeudaPrestamo(deudaPrestamo);

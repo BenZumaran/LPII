@@ -10,9 +10,13 @@
 <body>
 	<div id="div-indx" >	
 		<a class="btn-indx" href="ServletUsuario?rqst=buscar">Usuario</a><br>
-		<a class="btn-indx" href="menuLibros.jsp">Libros</a><br>
-		<a class="btn-indx" href="menuPrestamos.jsp">Préstamos</a><br>
-		<a class="btn-indx" href="menuReportes.jsp">Reportes</a><br>
+		<h2>Libros</h2>
+		<a class="btn-indx" href="ServletLibro?rqst=listar">Reporte Libros</a><br>
+		<h2>Préstamos</h2>
+		<a class="btn-indx" href="menuPrestamos.jsp">Reporte Préstamos</a><br>
+		<h2>Solicitudes de Prestamo</h2>
+		<a class="btn-indx" href="menuPrestamos.jsp">Reporte Solicitudes</a><br>
+		
 	</div>	
 </body>
 </html>

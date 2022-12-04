@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import beans.UsuarioDTO;
 import service.UsuarioService;
@@ -64,7 +65,11 @@ public class ServletUsuario extends HttpServlet {
 		String nomUsuario = request.getParameter("nom_usu"),
 				password = request.getParameter("password");
 		boolean con = service.autenticarUsuario(nomUsuario, password);
-		if(con) request.getRequestDispatcher("menu.jsp").forward( request, response);			
+		if(con) {
+			HttpSession session = request.getSession();
+			session.setAttribute("nom_usu", nomUsuario);
+			request.getRequestDispatcher("menu.jsp").forward( request, response);			
+		}
 		else {
 			PrintWriter out = response.getWriter(); 
 			out.println("<script type=\"text/javascript\">"); 
@@ -103,8 +108,8 @@ public class ServletUsuario extends HttpServlet {
 		usuario.setFecNacUsuario(fecNacUsuario);
 		usuario.setAdminUsuario(adminUsuario);
 		
-		service.actualizarUsuario(usuario);
-		request.getRequestDispatcher("menu.jsp").forward(request, response);
+		System.out.println( service.actualizarUsuario(usuario));
+		buscar(request, response);
 			
 	}
 	
@@ -138,7 +143,10 @@ public class ServletUsuario extends HttpServlet {
 	}
 
 	private void buscar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String codigo = request.getParameter("codigo");
+		HttpSession session = request.getSession();
+		
+
+		String codigo = (String) session.getAttribute("nom_usu");
 
 		request.setAttribute("dataUsuario", service.buscarUsuario(codigo));
 		request.setAttribute("dataGeneroLibro", service.listarDataGenero());
