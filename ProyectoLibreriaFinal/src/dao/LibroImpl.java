@@ -22,6 +22,7 @@ public class LibroImpl implements LibroDAO{
 			cn = MysqlDBConexion.getConexion();
 			String sql = "select * from libro where cod_lib = ?";
 			ps = cn.prepareStatement(sql);
+			ps.setString(1, codLibro);
 			ResultSet rs = ps.executeQuery();
 			if(rs.next()) {
 				libro = new LibroDTO();

@@ -27,7 +27,7 @@ public class SolicitudPrestamoImpl implements SolicitudDAO{
 			ResultSet rs = ps.executeQuery();
 			if(rs.next()) {
 				soli = new SolicitudDTO();
-				soli.setNumPrestamo(rs.getInt("num_soli"));
+				soli.setNumSolicitud(rs.getInt("num_soli"));
 				soli.setCodUsuSolicitante(rs.getString("cod_usu_solicitante"));
 				soli.setCodUsuAprobador(rs.getString("cod_usu_aprobador"));
 				soli.setFecCreacionSoli(rs.getString("fec_creacion_soli"));
@@ -58,9 +58,9 @@ public class SolicitudPrestamoImpl implements SolicitudDAO{
 			sql = "select * from solicitud_prestamo";
 			ps = cn.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
-			if(rs.next()) {
+			while(rs.next()) {
 				soli = new SolicitudDTO();
-				soli.setNumPrestamo(rs.getInt("num_soli"));
+				soli.setNumSolicitud(rs.getInt("num_soli"));
 				soli.setCodUsuSolicitante(rs.getString("cod_usu_solicitante"));
 				soli.setCodUsuAprobador(rs.getString("cod_usu_aprobador"));
 				soli.setFecCreacionSoli(rs.getString("fec_creacion_soli"));
@@ -100,9 +100,9 @@ public class SolicitudPrestamoImpl implements SolicitudDAO{
 			ps = cn.prepareStatement(sql);
 			ps.setString(1, detFiltro);
 			ResultSet rs = ps.executeQuery();
-			if(rs.next()) {
+			while(rs.next()) {
 				soli = new SolicitudDTO();
-				soli.setNumPrestamo(rs.getInt("num_soli"));
+				soli.setNumSolicitud(rs.getInt("num_soli"));
 				soli.setCodUsuSolicitante(rs.getString("cod_usu_solicitante"));
 				soli.setCodUsuAprobador(rs.getString("cod_usu_aprobador"));
 				soli.setFecCreacionSoli(rs.getString("fec_creacion_soli"));
@@ -129,6 +129,7 @@ public class SolicitudPrestamoImpl implements SolicitudDAO{
 	public int cambiarEstadoSolicitud(String estadoSolicitud, int numSolicitud) {
 		int res = -1;
 		try {
+			cn = MysqlDBConexion.getConexion();
 			String sql = "update solicitud_prestamo set estado_soli = ? where num_soli = ?";
 			ps = cn.prepareStatement(sql);
 			ps.setString(1, estadoSolicitud);

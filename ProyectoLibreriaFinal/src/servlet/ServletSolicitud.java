@@ -65,13 +65,15 @@ public class ServletSolicitud extends HttpServlet {
 	
 	private void listar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setAttribute("dataSolicitud", service.listarSolicitud());		
-		request.getRequestDispatcher("").forward( request, response);					
+		request.getRequestDispatcher("reporteSolicitudPrestamo.jsp").forward( request, response);					
 	}
 	
 	private void filtrar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String nomFiltro = request.getParameter("nom_filro"), detFiltro = request.getParameter("det_filtro");		
+		String nomFiltro = request.getParameter("nomfilro");
+		String detFiltro = request.getParameter("cbo_estado");		
+		if(detFiltro.equals("listar"))listar(request, response);
 		request.setAttribute("dataSolicitud", service.filtrarSolicitud(nomFiltro, detFiltro));		
-		request.getRequestDispatcher("").forward( request, response);					
+		request.getRequestDispatcher("reporteSolicitudPrestamo.jsp").forward( request, response);					
 	}
 	
 	private void actualizar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -71,21 +71,22 @@ public class ServletPrestamo extends HttpServlet {
 	}
 	
 	private void listar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setAttribute("dataRecibo", service.listarPrestamo());		
-		request.getRequestDispatcher("").forward( request, response);					
+		request.setAttribute("dataPrestamo", service.listarPrestamo());		
+		request.getRequestDispatcher("reportePrestamo.jsp").forward( request, response);					
 	}
 	
 	private void filtrar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String nomFiltro = request.getParameter("nom_filtro"),detalleFiltro = request.getParameter("det_filtro");
-		request.setAttribute("dataRecibo", service.filtrarPrestamo(nomFiltro, detalleFiltro));		
-		request.getRequestDispatcher("").forward( request, response);					
+		String nomFiltro = request.getParameter("nomfilro"),detalleFiltro = request.getParameter("txtUsuario");
+		if(detalleFiltro.equals(""))listar(request, response);
+		request.setAttribute("dataPrestamo", service.filtrarPrestamo(nomFiltro, detalleFiltro));		
+		request.getRequestDispatcher("reportePrestamo.jsp").forward( request, response);					
 	}
 	
 	private void actualizar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int numPrestamo= Integer.parseInt(request.getParameter("numero_prestamo"));
 		String estado = request.getParameter("est_pres");		
 		
-		request.setAttribute("dataRecibo", service.actualizarPrestamoEstado(estado, numPrestamo));		
+		request.setAttribute("dataPrestamo", service.actualizarPrestamoEstado(estado, numPrestamo));		
 		request.getRequestDispatcher("").forward( request, response);					
 	}	
 	
@@ -93,7 +94,7 @@ public class ServletPrestamo extends HttpServlet {
 		int numPrestamo= Integer.parseInt(request.getParameter("numero_prestamo"));
 		String codLibro = request.getParameter("cod_libro");		
 		boolean deuda = Double.parseDouble(request.getParameter("importe_reci"))>0;
-		request.setAttribute("dataRecibo", service.devolucionLibro(codLibro, numPrestamo, deuda));		
+		request.setAttribute("dataPrestamo", service.devolucionLibro(codLibro, numPrestamo, deuda));		
 		request.getRequestDispatcher("").forward( request, response);					
 	}	
 	
