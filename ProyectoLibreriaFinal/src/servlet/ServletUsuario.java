@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import beans.UsuarioDTO;
 import service.UsuarioService;
 
 /**
@@ -47,7 +48,7 @@ public class ServletUsuario extends HttpServlet {
 		}
 		else if (tipo.equals("buscar")) {
 			buscar(request, response);
-		}/*
+		}
 		else if (tipo.equals("registrar")) {
 			registrar(request, response);
 		}
@@ -56,7 +57,7 @@ public class ServletUsuario extends HttpServlet {
 		}
 		else if (tipo.equals("eliminar")) {
 			eliminar(request, response);
-		}*/
+		}
 	}
 
 	private void ingresar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -72,66 +73,74 @@ public class ServletUsuario extends HttpServlet {
 			out.println("</script>"); 
 		}		
 		
-	}/*
+	}
 	private void eliminar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int codigo = Integer.parseInt(request.getParameter("cod"));
-		service.eliminarJugador(codigo);
-		listar(request, response);
-	}*/
+		
+	}
 
 	private void actualizar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int codJ, dni, codClub, codPosc; String nom, ape; double sueldo; 
-		codJ = Integer.parseInt(request.getParameter("txt_cod"));
-		dni = Integer.parseInt(request.getParameter("txt_dni"));
-		codClub = Integer.parseInt(request.getParameter("cbo_club"));
-		codPosc = Integer.parseInt(request.getParameter("cbo_posc"));
-		nom = request.getParameter("txt_nom");
-		ape = request.getParameter("txt_ape");
-		sueldo = Double.parseDouble(request.getParameter("txt_sueldo"));
+		String codUsuario, nomUsuario, apePatUsuario, apeMatUsuario, tipoUsuario,numDocUsuario, imgUsuario,fecNacUsuario;
+		boolean adminUsuario;
+		codUsuario = request.getParameter("txt_cod");
+		nomUsuario = request.getParameter("txt_nombre");
+		apePatUsuario = request.getParameter("txt_ape_paterno");
+		apeMatUsuario = request.getParameter("txt_ape_materno");
+		tipoUsuario = request.getParameter("txt_tipo_usu");
+		numDocUsuario = request.getParameter("txt_doc_usu");
+		imgUsuario = request.getParameter("txt_img_usu");
+		fecNacUsuario = request.getParameter("fec_nac_usu");
+		adminUsuario = Boolean.parseBoolean(request.getParameter("admin_usu"));
 		
-		Jugador jugador = new Jugador();
-		jugador.setCodJugador(codJ);
-		jugador.setNomJugador(nom);
-		jugador.setApeJugador(ape);
-		jugador.setDniJugador(dni);
-		jugador.setSueldo(sueldo);
-		jugador.setCodClub(codClub);
-		jugador.setCodPosicion(codPosc);
+		UsuarioDTO usuario = new UsuarioDTO();
+		usuario.setCodUsuario(codUsuario);
+		usuario.setNomUsuario(nomUsuario);
+		usuario.setApePatUsuario(apePatUsuario);
+		usuario.setApeMatUsuario(apeMatUsuario);
+		usuario.setTipoUsuario(tipoUsuario);
+		usuario.setNumDocUsuario(numDocUsuario);
+		usuario.setImgUsuario(imgUsuario);
+		usuario.setFecNacUsuario(fecNacUsuario);
+		usuario.setAdminUsuario(adminUsuario);
 		
-		service.actualizarUsuario();
+		service.actualizarUsuario(usuario);
 		request.getRequestDispatcher("menu.jsp").forward(request, response);
 			
 	}
 	
 	private void registrar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	int dni, codClub, codPosc; String nom, ape; double sueldo; 
-	dni = Integer.parseInt(request.getParameter("txt_dni"));
-	codClub = Integer.parseInt(request.getParameter("cbo_club"));
-	codPosc = Integer.parseInt(request.getParameter("cbo_posc"));
-	nom = request.getParameter("txt_nom");
-	ape = request.getParameter("txt_ape");
-	sueldo = Double.parseDouble(request.getParameter("txt_sueldo"));
-	
-	Jugador jugador = new Jugador();
-	jugador.setNomJugador(nom);
-	jugador.setApeJugador(ape);
-	jugador.setDniJugador(dni);
-	jugador.setSueldo(sueldo);
-	jugador.setCodClub(codClub);
-	jugador.setCodPosicion(codPosc);
-	
-	service.ingresarJugador(jugador);
-	listar(request, response);
+		String codUsuario, nomUsuario, apePatUsuario, apeMatUsuario, tipoUsuario,numDocUsuario, imgUsuario,fecNacUsuario;
+		boolean adminUsuario;
+		codUsuario = request.getParameter("txt_cod");
+		nomUsuario = request.getParameter("txt_nombre");
+		apePatUsuario = request.getParameter("txt_ape_paterno");
+		apeMatUsuario = request.getParameter("txt_ape_materno");
+		tipoUsuario = request.getParameter("txt_tipo_usu");
+		numDocUsuario = request.getParameter("txt_doc_usu");
+		imgUsuario = request.getParameter("txt_img_usu");
+		fecNacUsuario = request.getParameter("fec_nac_usu");
+		adminUsuario = Boolean.parseBoolean(request.getParameter("admin_usu"));
+		
+		UsuarioDTO usuario = new UsuarioDTO();
+		usuario.setCodUsuario(codUsuario);
+		usuario.setNomUsuario(nomUsuario);
+		usuario.setApePatUsuario(apePatUsuario);
+		usuario.setApeMatUsuario(apeMatUsuario);
+		usuario.setTipoUsuario(tipoUsuario);
+		usuario.setNumDocUsuario(numDocUsuario);
+		usuario.setImgUsuario(imgUsuario);
+		usuario.setFecNacUsuario(fecNacUsuario);
+		usuario.setAdminUsuario(adminUsuario);
+		
+		service.registrarUsuario(usuario);
+		request.getRequestDispatcher("menu.jsp").forward(request, response);
 		
 	}
 
 	private void buscar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		boolean actualizar = Boolean.parseBoolean(request.getParameter("actualizar"));
-		if(actualizar) {
-			String codigo = request.getParameter("codigo");
-			request.setAttribute("dataUsuario", service.buscarUsuario(codigo));
-		}					
+		String codigo = request.getParameter("codigo");
 
+		request.setAttribute("dataUsuario", service.buscarUsuario(codigo));
 		request.setAttribute("dataGeneroLibro", service.listarDataGenero());
 		request.setAttribute("dataTipoDocumento", service.listarTipoDocumento());
 		
