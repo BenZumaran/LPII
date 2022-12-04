@@ -1,8 +1,8 @@
 package beans;
 
 public class PrestamoDTO {
-	private String codUsuario, fechaIniPrestamo, fechaFinPrestamo;
-	private int numDetPrestamo, numSolicitud;
+	private String codUsuario, estadoPrestamo;
+	private int numPrestamo, numSolicitud;
 	private double deudaPrestamo;
 	public String getCodUsuario() {
 		return codUsuario;
@@ -10,23 +10,17 @@ public class PrestamoDTO {
 	public void setCodUsuario(String codUsuario) {
 		this.codUsuario = codUsuario;
 	}
-	public String getFechaIniPrestamo() {
-		return fechaIniPrestamo;
+	public String getEstadoPrestamo() {
+		return estadoPrestamo;
 	}
-	public void setFechaIniPrestamo(String fechaIniPrestamo) {
-		this.fechaIniPrestamo = fechaIniPrestamo;
+	public void setEstadoPrestamo(String estadoPrestamo) {
+		this.estadoPrestamo = estadoPrestamo;
 	}
-	public String getFechaFinPrestamo() {
-		return fechaFinPrestamo;
+	public int getNumPrestamo() {
+		return numPrestamo;
 	}
-	public void setFechaFinPrestamo(String fechaFinPrestamo) {
-		this.fechaFinPrestamo = fechaFinPrestamo;
-	}
-	public int getNumDetPrestamo() {
-		return numDetPrestamo;
-	}
-	public void setNumDetPrestamo(int numDetPrestamo) {
-		this.numDetPrestamo = numDetPrestamo;
+	public void setNumPrestamo(int numPrestamo) {
+		this.numPrestamo = numPrestamo;
 	}
 	public int getNumSolicitud() {
 		return numSolicitud;
@@ -40,5 +34,6 @@ public class PrestamoDTO {
 	public void setDeudaPrestamo(double deudaPrestamo) {
 		this.deudaPrestamo = deudaPrestamo;
 	}
+	
 	
 }

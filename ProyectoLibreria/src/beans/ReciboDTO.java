@@ -2,7 +2,7 @@ package beans;
 
 public class ReciboDTO {
 	private String codUsuarioCobranza, codigoDocumento ,numDocRecibo, fechaRecibo;
-	private int numRecibo;
+	private int numRecibo, numPrestamo;
 	private double importeRecibo;
 	public String getCodUsuarioCobranza() {
 		return codUsuarioCobranza;
@@ -34,13 +34,18 @@ public class ReciboDTO {
 	public void setNumRecibo(int numRecibo) {
 		this.numRecibo = numRecibo;
 	}
+	public int getNumPrestamo() {
+		return numPrestamo;
+	}
+	public void setNumPrestamo(int numPrestamo) {
+		this.numPrestamo = numPrestamo;
+	}
 	public double getImporteRecibo() {
 		return importeRecibo;
 	}
 	public void setImporteRecibo(double importeRecibo) {
 		this.importeRecibo = importeRecibo;
 	}
-	
-	
+		
 }
 	

@@ -3,6 +3,7 @@ package beans;
 public class SolicitudDTO {
 	String codUsuSolicitante, codUsuAprobador, fecCreacionSoli, fecAprobacionSoli,fecIniPrestamo,fecDevPrestamo,estadoSoli;
 	int numPrestamo;
+	
 	public String getCodUsuSolicitante() {
 		return codUsuSolicitante;
 	}
