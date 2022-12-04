@@ -25,7 +25,7 @@ cod_gen char(4) not null,
 autor_lib varchar(80)not null,
 estado_lib varchar(10) not null ,
 constraint fk_lib_gen foreign key (cod_gen) references genero_libros (cod_gen),
-constraint chk_est_lib check (estado_lib in ("stock","prestado","solicitado","Baja"))
+constraint chk_est_lib check (estado_lib in ("stock","prestado","solicitado","baja"))
 );
 ----------------------------------------------------
 create table usuario(
