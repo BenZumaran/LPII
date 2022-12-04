@@ -14,5 +14,7 @@ public interface SolicitudDAO {
 	public List<SolicitudDTO> listarSolicitud();
 	//FiltrarSolicitud
 	public List<SolicitudDTO> filtrarSolicitud(String nomFiltro, String detFiltro);
+	//CanbiarEstadoSolicitud
+	public int cambiarEstadoSolicitud(String estadoSolicitud, int numSolicitud);
 	
 }
