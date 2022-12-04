@@ -19,6 +19,7 @@ public class LibroImpl implements LibroDAO{
 	public LibroDTO buscarLibro(String codLibro) {
 		LibroDTO libro = null;
 		try {
+			cn = MysqlDBConexion.getConexion();
 			String sql = "select * from libro where cod_lib = ?";
 			ps = cn.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
@@ -49,10 +50,11 @@ public class LibroImpl implements LibroDAO{
 		List<LibroDTO> lista = new ArrayList<LibroDTO>();
 		LibroDTO libro = null;
 		try {
+			cn = MysqlDBConexion.getConexion();
 			String sql = "select * from libro";
 			ps = cn.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
-			if(rs.next()) {
+			while(rs.next()) {
 				libro = new LibroDTO();
 				libro.setCodLibro(rs.getString("cod_lib"));
 				libro.setDescLibro(rs.getString("desc_lib"));
@@ -95,6 +97,7 @@ public class LibroImpl implements LibroDAO{
 				break;
 		}
 		try {
+			cn = MysqlDBConexion.getConexion();
 			ps = cn.prepareStatement(sql);
 			ps.setString(1, detFiltro);
 			ResultSet rs = ps.executeQuery();
@@ -125,6 +128,7 @@ public class LibroImpl implements LibroDAO{
 	public int actualizarLibro(LibroDTO libro) {
 		int res = -1;
 		try {
+			cn = MysqlDBConexion.getConexion();
 			String sql = "update libro set desc_lib = ?, anio_lib = ?, cod_gen = ?, autor_lib = ?, estado_lib = ? where cod_lib = ?";
 			ps = cn.prepareStatement(sql);
 			ps.setString(1, libro.getDescLibro());
@@ -151,6 +155,7 @@ public class LibroImpl implements LibroDAO{
 	public int ingresarLibro(LibroDTO libro) {
 		int res = -1;
 		try {
+			cn = MysqlDBConexion.getConexion();
 			String sql = "insert into libro values (?,?,?,?,?,?);";
 			ps = cn.prepareStatement(sql);
 			ps.setString(1, libro.getCodLibro());

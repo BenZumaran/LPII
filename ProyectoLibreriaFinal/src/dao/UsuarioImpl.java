@@ -44,7 +44,8 @@ public class UsuarioImpl implements UsuarioDAO{
 		PreparedStatement ps = null;
 		try {
 			cn = MysqlDBConexion.getConexion();
-			ps = cn.prepareStatement("selec * from usuario where cod_usu = ?");
+			String sql = "select * from usuario where cod_usu = ?;";
+			ps = cn.prepareStatement(sql);
 			ps.setString(1, codUsuario);
 			ResultSet rs = ps.executeQuery();
 			if(rs.next()) {
@@ -54,9 +55,9 @@ public class UsuarioImpl implements UsuarioDAO{
 				usuario.setApePatUsuario(rs.getString("ape_pat_usu"));
 				usuario.setApeMatUsuario(rs.getString("ape_mat_usu"));
 				usuario.setTipoUsuario(rs.getString("tipo_usu"));
-				usuario.setNumDocUsuario("num_doc_usu");
+				usuario.setNumDocUsuario(rs.getString("num_doc_usu"));
 				usuario.setImgUsuario(rs.getString("img_usu"));
-				usuario.setFecNacUsuario("fecha_nac_usu");
+				usuario.setFecNacUsuario(rs.getString("fecha_nac_usu"));
 				usuario.setAdminUsuario(rs.getBoolean("admin_usu"));
 			}
 		} catch (Exception e) {
@@ -79,9 +80,7 @@ public class UsuarioImpl implements UsuarioDAO{
 		PreparedStatement ps = null;
 		try {
 			cn = MysqlDBConexion.getConexion();
-			ps = cn.prepareStatement("update usuario set nom_usu = ?, ape_pat_usu = ?, "
-					+ "ape_mat_usu = ?, tipo_usu = ?, num_doc_usu = ?, "
-					+ "img_usu = ?, fec_nac_usu = ?, admin = ? where cod_usu = ?;");
+			ps = cn.prepareStatement("update usuario set nom_usu = ?, ape_pat_usu = ?, ape_mat_usu = ?, tipo_usu = ?, num_doc_usu = ?, img_usu = ?, fecha_nac_usu = ?, admin_usu = ? where cod_usu = ?;");
 			ps.setString(1, usuario.getNomUsuario());
 			ps.setString(2, usuario.getApePatUsuario());
 			ps.setString(3, usuario.getApeMatUsuario());

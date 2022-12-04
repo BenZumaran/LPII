@@ -150,6 +150,8 @@ select * from prestamo;
 select p.* from prestamo as p inner join usuario as u on p.cod_usu = u.cod_usu 
 where u.nom_usu like "%lu%" or ape_pat_usu like "%lu%" or u.ape_mat_usu like "%ma%";
 
+select * from usuario where cod_usu = "benzum";
+
 /*
 update usuario set nom_usu = ?, ape_pat_usu = ?, ape_mat_usu = ?, tipo_usu = ?, num_doc_usu = ?, img_usu = ?, fec_nac_usu = ?, admin = ?, contra_usu = ? where cod_usu = ?;
 */
