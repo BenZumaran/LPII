@@ -19,7 +19,7 @@ public class SolicitudService {
 	public List<SolicitudDTO> filtrarSolicitud(String nomFiltro, String detFiltro){
 		return solicitud.filtrarSolicitud(nomFiltro, detFiltro);
 	}
-	public int cambiarEstadoSolicitud(String estadoSolicitud, int numSolicitud) {
-		return solicitud.cambiarEstadoSolicitud(estadoSolicitud, numSolicitud);
+	public int cambiarEstadoSolicitud(String estadoSolicitud, int numSolicitud, String usuarioAprobador) {
+		return solicitud.cambiarEstadoSolicitud(estadoSolicitud, numSolicitud, usuarioAprobador);
 	}
 }

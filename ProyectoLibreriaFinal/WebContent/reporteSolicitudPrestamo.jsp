@@ -97,7 +97,10 @@
 					</td>
 					<td>
 						<%= solicitud.getEstadoSoli()%>
-					</td>				
+					</td>			
+					<td>
+						<a class="btn-indx" href="ServletSolicitud?rqst=buscar&actualizar=true&numero=<%=solicitud.getNumSolicitud()%>">Actualizar</a><br>
+					</td>		
 				</tr>					
 					<% } %>
 			</table>

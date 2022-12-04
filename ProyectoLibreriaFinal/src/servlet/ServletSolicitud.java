@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import service.SolicitudService;
 
@@ -60,7 +61,7 @@ public class ServletSolicitud extends HttpServlet {
 	private void buscar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int  numSolicitud = Integer.parseInt(request.getParameter("numero"));		
 		request.setAttribute("dataSolicitud", service.buscarSolicitud(numSolicitud));		
-		request.getRequestDispatcher("").forward( request, response);					
+		request.getRequestDispatcher("actualizarSolicitud.jsp").forward( request, response);					
 	}
 	
 	private void listar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -77,10 +78,13 @@ public class ServletSolicitud extends HttpServlet {
 	}
 	
 	private void actualizar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int numSolicitud = Integer.parseInt(request.getParameter("numero"));
-		String estadoSolicitud = request.getParameter("estado_soli");
-		request.setAttribute("dataSolicitud", service.cambiarEstadoSolicitud(estadoSolicitud, numSolicitud));		
-		request.getRequestDispatcher("").forward( request, response);					
+		HttpSession session = request.getSession();
+		int numSolicitud = Integer.parseInt(request.getParameter("num_soli"));
+		String estadoSolicitud = request.getParameter("cbo_estado"), codUsuAprobador = (String) session.getAttribute("nom_usu");			
+		
+		
+		request.setAttribute("dataSolicitud", service.cambiarEstadoSolicitud(estadoSolicitud, numSolicitud, codUsuAprobador));		
+		listar(request, response);				
 	}
 	
 

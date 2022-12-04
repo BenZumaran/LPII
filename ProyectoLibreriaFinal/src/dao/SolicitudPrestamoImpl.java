@@ -3,7 +3,9 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import beans.SolicitudDTO;
@@ -126,14 +128,18 @@ public class SolicitudPrestamoImpl implements SolicitudDAO{
 	}
 
 	@Override
-	public int cambiarEstadoSolicitud(String estadoSolicitud, int numSolicitud) {
+	public int cambiarEstadoSolicitud(String estadoSolicitud, int numSolicitud, String usuarioAprobador) {
 		int res = -1;
 		try {
+			SimpleDateFormat frm = new SimpleDateFormat("yyyy/MM/dd");  
+		    Date dt = new Date();  
 			cn = MysqlDBConexion.getConexion();
-			String sql = "update solicitud_prestamo set estado_soli = ? where num_soli = ?";
+			String sql = "update solicitud_prestamo set estado_soli = ?, cod_usu_aprobador = ?, fec_aprobacion_soli = ? where num_soli = ?";
 			ps = cn.prepareStatement(sql);
 			ps.setString(1, estadoSolicitud);
-			ps.setInt(2, numSolicitud);
+			ps.setString(2, usuarioAprobador);
+			ps.setString(3, frm.format(dt));
+			ps.setInt(4, numSolicitud);
 			res = ps.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
